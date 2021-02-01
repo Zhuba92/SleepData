@@ -57,7 +57,18 @@ namespace SleepData
             else if (resp == "2")
             {
                 // TODO: parse data file
-
+                string file = "data.txt";
+                if(System.IO.File.Exists(file))
+                {
+                    StreamReader sr = new StreamReader(file);
+                    while(!sr.EndOfStream)
+                    {
+                        string line = sr.ReadLine();
+                        string date = line.Substring(0, line.IndexOf(","));
+                        DateTime numDate = DateTime.Parse(date);
+                        Console.WriteLine($"Week of {numDate:MMM}, {numDate:dd}, {numDate:yyyy}");
+                    }
+                }
             }
         }
     }
