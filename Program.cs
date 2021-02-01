@@ -64,9 +64,21 @@ namespace SleepData
                     while(!sr.EndOfStream)
                     {
                         string line = sr.ReadLine();
+
                         string date = line.Substring(0, line.IndexOf(","));
+
                         DateTime numDate = DateTime.Parse(date);
+
                         Console.WriteLine($"Week of {numDate:MMM}, {numDate:dd}, {numDate:yyyy}");
+                        Console.WriteLine($"Mo Tu We TH Fr Sa Su");
+
+                        string[] hours = line.Split(",");
+                        foreach(var section in hours[1])
+                        {
+                            Console.Write(section);
+                        }
+                        Console.WriteLine("");
+                        Console.WriteLine("");
                     }
                 }
             }
