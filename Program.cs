@@ -70,13 +70,27 @@ namespace SleepData
                         string[] hoursNoBars = hours[1].Split("|");
 
                         Console.WriteLine($"Week of {numDate:MMM} {numDate:dd}, {numDate:yyyy}");
-                        Console.WriteLine($"Mo Tu We Th Fr Sa Su");
-                        Console.WriteLine("-- -- -- -- -- -- --");
+                        Console.WriteLine($"Mo Tu We Th Fr Sa Su Tot Avg");
+                        Console.WriteLine("-- -- -- -- -- -- -- --- ---");
+
+                        double total = 0;
+    
+                        foreach(var section in hoursNoBars)
+                        {
+                            int sectionNum = Convert.ToInt32(section);
+                            total += sectionNum;
+                        }
 
                         foreach(var section in hoursNoBars)
                         {
                             Console.Write("{0,3}",section + " ");
                         }
+
+                        double avg = (total / 7);
+                        String displayAvg = string.Format("{0:0.0}", avg);
+
+                        Console.Write("{0,3}",total);
+                        Console.Write("{0,4}",displayAvg);
                         Console.WriteLine("");
                         Console.WriteLine("");
                     }
