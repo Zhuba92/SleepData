@@ -75,7 +75,7 @@ namespace SleepData
 
                         foreach(var section in hoursNoBars)
                         {
-                            Console.Write($"{section}  ");
+                            Console.Write("{0,3}",section + " ");
                         }
                         Console.WriteLine("");
                         Console.WriteLine("");
